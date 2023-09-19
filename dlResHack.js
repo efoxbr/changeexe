@@ -12,6 +12,7 @@ function downloadResourceHacker() {
     http.get(url, (res) => {
       const filePath = fs.createWriteStream(join(__dirname, filename))
       res.pipe(filePath)
+      filePath.on('error', console.error)
       filePath.on('finish', () => {
         filePath.close()
         console.log('Download Completed')
