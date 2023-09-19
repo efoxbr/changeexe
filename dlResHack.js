@@ -25,7 +25,7 @@ function downloadResourceHacker() {
         console.log('Deletion of resource_hacker.zip complete.')
         resolve()
       })
-    })
+    }).on('error', console.error)
   })
 }
 
